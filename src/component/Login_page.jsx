@@ -1,97 +1,85 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Login_page.scss";
 
-const App = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [emailError, setEmailError] = useState("");
-  const [passwordError, setPasswordError] = useState("");
+// ✅ Validation Functions (Moved Outside Component for Performance)
+const validateEmail = (email) => /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(email);
+const validatePassword = (password) =>
+  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(password);
+
+const LoginPage = () => {
+  const [formData, setFormData] = useState({ email: "", password: "" });
+  const [errors, setErrors] = useState({ email: "", password: "" });
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
-  // Email validation
-  const validateEmail = (email) => {
-    const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-    return re.test(email);
-  };
+  // ✅ Handle Input Change
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
 
-  // Password validation
-  const validatePassword = (password) => {
-    const re =
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-    return re.test(password);
-  };
+    if (name === "email") {
+      setErrors((prev) => ({
+        ...prev,
+        email: validateEmail(value) ? "" : "Please enter a valid email address.",
+      }));
+    }
 
-  const handleEmailChange = (e) => {
-    const value = e.target.value;
-    setEmail(value);
-
-    if (!validateEmail(value)) {
-      setEmailError("Please enter a valid email address.");
-    } else {
-      setEmailError("");
+    if (name === "password") {
+      setErrors((prev) => ({
+        ...prev,
+        password: validatePassword(value)
+          ? ""
+          : "Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character.",
+      }));
     }
   };
 
-  const handlePasswordChange = (e) => {
-    const value = e.target.value;
-    setPassword(value);
-
-    if (!validatePassword(value)) {
-      setPasswordError(
-        "Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character."
-      );
-    } else {
-      setPasswordError("");
-    }
-  };
-
+  // ✅ Handle Form Submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!validateEmail(email) || !validatePassword(password)) {
-      return;
-    }
-    console.log("Login Info: ", email, password);
+    if (!validateEmail(formData.email) || !validatePassword(formData.password)) return;
+
+    localStorage.setItem("isLoggedIn", "true");
+    localStorage.setItem("userEmail", formData.email); // ✅ Store email for dashboard
+    navigate("/home"); // ✅ Redirect to home page
   };
 
   return (
     <div className="login-container">
       <div className="login-box">
-        <h2>Login-Page</h2>
+        <h2>Login</h2>
         <form onSubmit={handleSubmit}>
           <div className="textbox">
             <input
               type="email"
+              name="email"
               placeholder="Email"
-              value={email}
-              onChange={handleEmailChange}
+              value={formData.email}
+              onChange={handleChange}
               required
             />
-            {emailError && <div className="error-message">{emailError}</div>}
+            {errors.email && <div className="error-message">{errors.email}</div>}
           </div>
           <div className="textbox password-box">
             <input
               type={showPassword ? "text" : "password"}
+              name="password"
               placeholder="Password"
-              value={password}
-              onChange={handlePasswordChange}
+              value={formData.password}
+              onChange={handleChange}
               required
             />
-            <span
-              className="eye-icon"
-              onClick={() => setShowPassword(!showPassword)}
-            >
-  {showPassword ? "👁️" : "👁️‍🗨️"} {/* Eye icon */}            </span>
-            {passwordError && (
-              <div className="error-message">{passwordError}</div>
-            )}
+            <span className="eye-icon" onClick={() => setShowPassword(!showPassword)}>
+              {showPassword ? "👁️" : "👁️‍🗨️"}
+            </span>
+            {errors.password && <div className="error-message">{errors.password}</div>}
           </div>
-          <button type="submit" className="btn-login">
-            Login
-          </button>
+          <button type="submit" className="btn-login">Login</button>
         </form>
       </div>
     </div>
   );
 };
 
-export default App;
+export default LoginPage;
