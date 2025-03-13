@@ -8,7 +8,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<LoginPage />} />
-        <Route path="/home/*" element={<HomePage />} /> {/* Change to /home/* for nested routes */}
+        <Route path="/home/*" element={<HomePage />} /> {/* Nested Routes */}
       </Routes>
     </Router>
   );

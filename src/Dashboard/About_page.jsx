@@ -1,15 +1,17 @@
-import React from 'react'
+import React, { useEffect } from "react";
+// import "./About_page.scss"; // Make sure to create this file for styling
 
-function About_page() {
+const AboutPage = () => {
+  useEffect(() => {
+    console.log("About Page Rendered");
+  }, []);
+
   return (
-    <div>
-      <p> consectetur adipisicing elit. Animi doloribus a fugit distinctio minus asperiores cum veritatis. Quas dolores itaque nobis id magnam eligendi numquam cum exercitationem. Amet accusamus quis dolor perspiciatis! Tempore neque iusto maxime minima quos quis odit nemo similique doloribus, explicabo molestiae blanditiis delectus laboriosam repellat est dignissimos beatae nulla. Illo nisi, quidem cupiditate veniam obcaecati, nesciunt non dolore consequuntur quod quae hic ea itaque voluptates dolores explicabo exercitationem? Quia, nisi vero? Molestias exercitationem fugiat saepe ducimus neque cupiditate, expedita repudiandae ex quidem minus. Quidem cum maxime, sapiente laboriosam, magni repellendus accusantium libero, veritatis beatae quod molestiae?</p>
+    <div className="about-container">
+      <h2>About Page</h2>
+      <p>This is the About Page. Lorem ipsum dolor sit amet.rrrrrrrrrrrrrrr..</p>
     </div>
-  )
-}
+  );
+};
 
-export default About_page
-
-
-
-
+export default AboutPage;
