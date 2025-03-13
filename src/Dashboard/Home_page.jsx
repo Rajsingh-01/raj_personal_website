@@ -2,23 +2,65 @@ import React, { useState, useEffect } from "react";
 import { Routes, Route, Link, useNavigate } from "react-router-dom";
 import "./Home_page.scss";
 
-const Home = () => <h2>Home Page</h2>;
-const About = () => <h2>About Page</h2>;
-const Contact = () => <h2>Contact Page</h2>;
+// Home component
+const Home = () => {
+  useEffect(() => {
+    console.log("Home Page Rendered");
+  }, []);
+
+  return (
+    <div>
+      <h2>Home Page</h2>
+      <p>Welcome to the Home Page. Lorem ipsum dolor sit amet...</p>
+    </div>
+  );
+};
+
+// About component
+const About = () => {
+  useEffect(() => {
+    console.log("About Page Rendered");
+  }, []);
+
+  return (
+    <div>
+      <h2>About Page</h2>
+      <p>This is the About Page. Lorem ipsum dolor sit amet...</p>
+    </div>
+  );
+};
+
+// Contact component
+const Contact = () => {
+  useEffect(() => {
+    console.log("Contact Page Rendered");
+  }, []);
+
+  return (
+    <div>
+      <h2>Contact Page</h2>
+      <p>This is the Contact Page. Lorem ipsum dolor sit amet...</p>
+    </div>
+  );
+};
 
 const HomePage = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
-  const userEmail = localStorage.getItem("userEmail") || "User"; // Get user email from storage
+  const userEmail = localStorage.getItem("userEmail") || "User";
 
+  // Check if the user is logged in
   useEffect(() => {
     if (!localStorage.getItem("isLoggedIn")) {
+      console.log("User is not logged in, redirecting to login page...");
       navigate("/"); // Redirect to login if not logged in
     }
   }, [navigate]);
 
+  // Handle user logout
   const handleLogout = () => {
     setIsLoading(true);
+    console.log("Logging out...");
     setTimeout(() => {
       localStorage.removeItem("isLoggedIn");
       localStorage.removeItem("userEmail");
@@ -30,11 +72,12 @@ const HomePage = () => {
     <div className="dashboard">
       <nav className="Header-part">
         <ul>
+          {/* Navigation links */}
           <li><Link to="/home">Home</Link></li>
           <li><Link to="/home/about">About</Link></li>
           <li><Link to="/home/contact">Contact</Link></li>
 
-          {/* User Info and Logout Button Inside ul */}
+          {/* Logout Button */}
           <li>
             <header>
               <button className="user-btn">{userEmail}</button>
@@ -46,11 +89,12 @@ const HomePage = () => {
         </ul>
       </nav>
 
+      {/* Main Content Section with Routes */}
       <div className="main-content">
         <Routes>
-          <Route path="home" element={<Home />} />
-          <Route path="home/about" element={<About />} />
-          <Route path="home/contact" element={<Contact />} />
+          <Route path="/" element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="contact" element={<Contact />} />
         </Routes>
       </div>
     </div>
