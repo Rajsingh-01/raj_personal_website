@@ -1,124 +1,153 @@
 /* General styles */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    background: #f0f0f0;
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  /* Login Container */
-  .login-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    width: 100%;
-    padding: 20px;
-  }
-  
-  /* Login Box */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #f0f0f0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Login Container */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  padding: 20px;
+}
+
+/* Login Box */
+.login-box {
+  background: #fff;
+  padding: 40px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+/* Heading */
+h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+/* Textbox styles */
+.textbox {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.textbox input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  outline: none;
+}
+
+/* Button styles */
+.btn-login {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-login:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.btn-login:active {
+  transform: scale(1);
+}
+
+/* Error Message */
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+  text-align: left;
+}
+
+/* Password input with eye icon */
+.password-box {
+  position: relative;
+}
+
+.password-box input {
+  width: 100%;
+  padding-right: 40px; /* Space for the eye icon */
+}
+
+.eye-icon {
+  position: absolute;
+  right: 10px;
+  top: 20%;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* ✅ Responsive Design */
+@media (max-width: 768px) {
   .login-box {
-    background: #fff;
-    padding: 40px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    width: 100%;
-    max-width: 400px;
-    text-align: center;
+    padding: 30px;
+    width: 90%;  /* Reduce width for smaller screens */
   }
-  
-  /* Heading */
-  h2 {
-    margin-bottom: 20px;
-    font-size: 24px;
-    color: #333;
-  }
-  
-  /* Textbox styles */
-  .textbox {
-    margin-bottom: 20px;
-    text-align: left;
-  }
-  
+
   .textbox input {
-    width: 100%;
-    padding: 12px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-    outline: none;
-  }
-  
-  /* Button styles */
-  .btn-login {
-    width: 100%;
-    padding: 14px;
-    border: none;
-    background-color: #007bff;
-    color: #fff;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  
-  .btn-login:hover {
-    background-color: #0056b3;
-    transform: scale(1.05);
-  }
-  
-  .btn-login:active {
-    transform: scale(1);
-  }
-  
-  /* Error Message */
-  .error-message {
-    color: red;
+    padding: 10px;
     font-size: 14px;
-    margin-top: 5px;
-    text-align: left;
   }
-  
-  /* ✅ Responsive Design */
-  @media (max-width: 480px) {
-    .login-box {
-      padding: 30px;
-    }
-  
-    .textbox input {
-      padding: 10px;
-      font-size: 14px;
-    }
-  
-    .btn-login {
-      padding: 12px;
-      font-size: 14px;
-    }
+
+  .btn-login {
+    padding: 12px;
+    font-size: 14px;
   }
-  /* pasword styling  */
-  .password-box {
-    position: relative;
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 10px;  /* Add some padding to the body for small screens */
   }
-  
-  .password-box input {
-    width: 100%;
-    padding-right: 40px; /* Space for the eye icon */
+
+  .login-box {
+    padding: 20px;
+    width: 100%;  /* Make the login box take full width on small devices */
   }
-  
+
+  .textbox input {
+    padding: 8px;
+    font-size: 12px;  /* Smaller font size for mobile */
+  }
+
+  .btn-login {
+    padding: 10px;
+    font-size: 14px;
+  }
+
   .eye-icon {
-    position: absolute;
-    right: 10px;
-    top: 20%;
-    /* transform: translateY(-50%); */
-    cursor: pointer;
-    font-size: 18px;
+    font-size: 16px;  /* Slightly smaller eye icon for mobile */
   }
-  
+
+  .error-message {
+    font-size: 12px;  /* Smaller error message font size */
+  }
+}
