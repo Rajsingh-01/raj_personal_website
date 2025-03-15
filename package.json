@@ -11,6 +11,7 @@
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.2.0",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.8.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.3.0",
@@ -43,5 +44,10 @@
   },
   "devDependencies": {
     "sass": "^1.85.1"
-  }
+  },
+  "description": "This application is designed to provide a clear understanding of the flow of a React application, including its component structure, state management, and data flow. It serves as a practical guide for learning how different parts of a React app interact and work together",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

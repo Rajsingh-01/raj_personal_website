@@ -59,7 +59,7 @@ const HomePage = () => {
           <Routes>
             <Route path="" element={<h3>You are already on Home Page Dashboard</h3>} />
           {/* <Route path="about" element={<AboutPage />} /> */}
-            <Route path="contact" element={<ContactPage />} />
+            {/* <Route path="contact" element={<ContactPage />} /> */}
           </Routes>
 
           <div className="profile-section">
@@ -98,6 +98,9 @@ const HomePage = () => {
           {/* About Page (Below Profile Section) */}
           <div className="about-section">
             <AboutPage />
+          </div>
+          <div className="contact-section">
+            <ContactPage />
           </div>
         </div>
       </div>
