@@ -1,3 +1,6 @@
+
+//************** */ this comment code is way of defining to conenct with the user phone number when any user can reach their site and send msg it would be sended 2 types 1.email2. an sms through*****
+
 /*import axios from 'axios';
 
 export const sendMessage = async (formData) => {
@@ -9,7 +12,8 @@ export const sendMessage = async (formData) => {
     throw error; // Propagate the error to be handled in the component
   }
 };
-*/
+
+*/ 
 
 
 // only for an email

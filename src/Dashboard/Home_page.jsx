@@ -1,16 +1,22 @@
-import React, { useState, useEffect } from "react";
-import { Routes, Route, Link, useNavigate } from "react-router-dom";
+import React, { useState, useEffect, useRef } from "react";
+import { Routes, Route, Link, useNavigate, useLocation, Navigate } from "react-router-dom";
 import AboutPage from "./About_page";
 import ContactPage from "./Contact_page";
 import { Button } from "@mui/material";
-import WorkIcon from "@mui/icons-material/Work"; // MUI icon
+import WorkIcon from "@mui/icons-material/Work";
 import "./Home_page.scss";
 
 const HomePage = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [isLoading, setIsLoading] = useState(false);
   const [image, setImage] = useState(null);
   const userEmail = localStorage.getItem("userEmail") || "User";
+
+  // Refs for scrolling
+  const homeRef = useRef(null);
+  const aboutRef = useRef(null);
+  const contactRef = useRef(null);
 
   useEffect(() => {
     if (!localStorage.getItem("isLoggedIn")) {
@@ -18,6 +24,24 @@ const HomePage = () => {
       navigate("/");
     }
   }, [navigate]);
+
+  // 🚀 Fix: Force /home on page refresh
+  useEffect(() => {
+    if (location.pathname !== "/home") {
+      navigate("/home", { replace: true }); // Replace ensures no extra history entry
+    }
+  }, []); // Only runs on first render (refresh)
+
+  // Scroll to section based on the URL
+  useEffect(() => {
+    if (location.pathname === "/home") {
+      scrollToSection(homeRef);
+    } else if (location.pathname === "/home/about") {
+      scrollToSection(aboutRef);
+    } else if (location.pathname === "/home/contact") {
+      scrollToSection(contactRef);
+    }
+  }, [location.pathname]);
 
   const handleLogout = () => {
     setIsLoading(true);
@@ -36,14 +60,33 @@ const HomePage = () => {
     }
   };
 
+  // Function to scroll to section
+  const scrollToSection = (ref) => {
+    if (ref && ref.current) {
+      ref.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <>
       <div className="dashboard">
         <nav className="Header-part">
           <ul>
-            <li><Link to="/home">Home</Link></li>
-            <li><Link to="/home/about">About</Link></li>
-            <li><Link to="/home/contact">Contact</Link></li>
+            <li>
+              <Link to="/home" onClick={(e) => { e.preventDefault(); navigate("/home"); }}>
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link to="/home/about" onClick={(e) => { e.preventDefault(); navigate("/home/about"); }}>
+                About
+              </Link>
+            </li>
+            <li>
+              <Link to="/home/contact" onClick={(e) => { e.preventDefault(); navigate("/home/contact"); }}>
+                Contact
+              </Link>
+            </li>
             <li>
               <header>
                 <button className="user-btn">{userEmail}</button>
@@ -57,17 +100,18 @@ const HomePage = () => {
 
         <div className="main-content">
           <Routes>
-            <Route path="" element={<h3>You are already on Home Page Dashboard</h3>} />
-          {/* <Route path="about" element={<AboutPage />} /> */}
-            {/* <Route path="contact" element={<ContactPage />} /> */}
+            {/* Default Redirect to Home if user is at root */}
+            <Route path="/" element={<Navigate to="/home" />} />
+            <Route path="/home" element={<h3>You are already on Home Page Dashboard</h3>} />
           </Routes>
 
-          <div className="profile-section">
+          {/* Home Section (Hire Me & Contact) */}
+          <div ref={homeRef} className="profile-section">
             <div className="profile-info">
               <h2>Raj Singh</h2>
               <div className="bio-text">
                 <p>
-                  "I am an engineer, having recently completed my degree in 2024. I have a strong passion for technology and innovation, and I thrive on taking on new challenges every day. Constant learning and improving my skills are important to me. My ultimate goal is to find innovative solutions in my field and use my work to make a positive impact on the world."
+                  "I am an engineer, having recently completed my degree in 2024. I have a strong passion for technology and innovation..."
                 </p>
               </div>
               <div className="buttons-container">
@@ -91,15 +135,18 @@ const HomePage = () => {
                 accept="image/*"
                 onChange={handleImageUpload}
                 className="image-upload-input"
+                style={{ width: '56%' }}
               />
             </div>
           </div>
 
-          {/* About Page (Below Profile Section) */}
-          <div className="about-section">
+          {/* About Section */}
+          <div ref={aboutRef} className="about-section">
             <AboutPage />
           </div>
-          <div className="contact-section">
+
+          {/* Contact Section */}
+          <div ref={contactRef} className="contact-section">
             <ContactPage />
           </div>
         </div>

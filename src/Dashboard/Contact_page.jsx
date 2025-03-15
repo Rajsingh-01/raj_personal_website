@@ -45,18 +45,51 @@ const ContactPage = () => {
   };
 
   return (
-    <div className="contact-form">
-      <form onSubmit={handleSubmit}>
-        <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Your Name" required />
-        <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Your Email" required />
-        <input type="text" name="subject" value={formData.subject} onChange={handleChange} placeholder="Subject" required />
-        <textarea name="message" value={formData.message} onChange={handleChange} placeholder="Message" required />
+    <div className="contact-container">
+      <div className="contact-form">
+        <h2>Get in touch</h2>
+        <form onSubmit={handleSubmit}>
+          <input type="text" name="name"
+            value={formData.name}
+            onChange={handleChange}
+            placeholder="Your Name"
+            required />
+          <input type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            placeholder="Your Email"
+            required />
+          <input type="text"
+            name="subject"
+            value={formData.subject}
+            onChange={handleChange}
+            placeholder="Subject"
+            required />
+          <textarea name="message"
+            value={formData.message}
+            onChange={handleChange}
+            placeholder="Message"
+            required />
+          {/* New input field for recipient email */}
+          {/* <input
+            type="email"
+            name="recipientEmail"
+            placeholder="Recipient Email (Optional)"
+            value={formData.recipientEmail}
+            onChange={handleChange}
+          /> */}
 
-        {/* Submit button with spinner */}
-        <button type="submit" disabled={isLoading}>
-          {isLoading ? <div className="spinner"></div> : "Send_Message"}
-        </button>
-      </form>
+          {/* Submit button with spinner */}
+          <button type="submit" disabled={isLoading}>
+            {isLoading ? (
+              <div className="spinner"></div> // Circular loading spinner
+            ) : (
+              "Send Message"
+            )}
+          </button>
+        </form>
+      </div>
     </div>
   );
 };
