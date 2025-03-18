@@ -18,7 +18,7 @@ nav ul {
     justify-content: flex-end; /* Align items to the right */
     align-items: center;
     background-color: #0d3e72;
-    padding: 15px 30px;
+    padding: 19px 18px;
     list-style: none; /* Remove default list style */
     gap: 20px;
 }
@@ -317,4 +317,76 @@ header {
 html {
     scroll-behavior: smooth;
   }
+  /* Home_page.scss */
+/* Ensure the desktop nav is displayed normally */
+.desktop-nav {
+    display: flex;
+    align-items: center;
+}
   
+/* Styling the hamburger icon itself */
+.hamburger-menu-icon {
+    font-size: 2rem; /* Adjust the icon size */
+    color: white; /* Set the color of the icon */
+    transition: transform 0.3s ease; /* Add a smooth transition for any transform animations */
+}
+  
+/* Position the hamburger icon at the top-left of the screen */
+.hamburger-icon {
+    display: none; /* Hide by default on larger screens */
+    position: absolute;
+    top: -55px;      /* Adjust the vertical position */
+    left: 15px;      /* Adjust the horizontal position */
+    z-index: 10;     /* Make sure it's above other content */
+}
+  
+.drawer-menu ul {
+    list-style-type: none;
+    padding: 0;
+    // background-color: blue; /* Set the background color to blue */
+    margin: 0;
+}
+  
+.drawer-menu li {
+    padding: 14px;
+    margin: 5px 30px; /* Add margin to space items out a little */
+    color: white; /* Text color for better visibility */
+    // border-bottom: 1px solid #ccc; /* Border between menu items */
+}
+
+/* Media query for small screen sizes */
+@media (max-width: 768px) {
+    /* Hide the regular desktop nav on small screens */
+    .desktop-nav {
+      display: none;
+    }
+  
+    /* Show the hamburger icon on small screens */
+    .hamburger-icon {
+      display: block; /* Make the hamburger icon visible */
+    }
+  
+    /* Optionally, add a hover effect on the hamburger icon */
+    .hamburger-menu-icon:hover {
+      transform: rotate(90deg); /* This will rotate the hamburger icon when hovered */
+    }
+  
+    /* Drawer menu (mobile version) styling */
+    .drawer-menu ul {
+      margin: 0;
+      background-color: blue; /* Ensure background remains blue on mobile */
+      padding: 10px 0; /* Add padding inside the menu */
+    }
+  
+    .drawer-menu li {
+        padding: 14px 20px; /* Add more padding for better spacing */
+        border-bottom: 1px solid #ccc;
+        text-align: center; /* Center the text horizontally */
+        
+        /* Flexbox to center content both horizontally and vertically */
+        display: flex;
+        justify-content: center; /* Center items horizontally */
+        align-items: center;     /* Center items vertically */
+    }
+    
+  }
