@@ -1,0 +1,85 @@
+.github-details {
+    max-width: 100%;
+    width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #0f4c8d;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
+  
+  .github-details h2 {
+    color: white;
+    margin-bottom: 15px;
+  }
+  
+  .github-details p {
+    color: white;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+  .github-details .links-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px; /* Creates space between the button and link */
+  }
+  
+  .github-details a {
+    display: inline-block;
+    padding: 12px 20px;
+    text-decoration: none;
+    background-color: #0073e6;
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  .github-details a:hover {
+    background-color: #005bb5;
+  }
+  
+  .github-details button {
+    padding: 12px 24px;
+    background-color: #0073e6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  .github-details button:hover {
+    background-color: #005bb5;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .github-details {
+      padding: 15px;
+    }
+  
+    .github-details a,
+    .github-details button {
+      width: 80%; /* Makes buttons and links adapt to smaller screens */
+      text-align: center;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .github-details {
+      padding: 10px;
+    }
+  
+    .github-details a,
+    .github-details button {
+      width: 100%;
+      font-size: 14px;
+      padding: 10px;
+    }
+  }
+  

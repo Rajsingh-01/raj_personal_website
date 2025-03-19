@@ -10,7 +10,7 @@ body {
     flex-direction: column;
     height: 100vh;
     width: 100vw;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 nav ul {
@@ -18,7 +18,7 @@ nav ul {
     justify-content: flex-end; /* Align items to the right */
     align-items: center;
     background-color: #0d3e72;
-    padding: 15px 30px;
+    padding: 19px 18px;
     list-style: none; /* Remove default list style */
     gap: 20px;
 }
@@ -100,18 +100,19 @@ header {
 .main-content {
     flex-grow: 1;
     padding: 20px;
+    overflow-y: auto;
     background: #ecf0f1;
 }
 
 .profile-section {
     display: flex;
     justify-content: space-between;
-    align-items: center; /* Align items vertically at the center */
+    align-items: center;
     margin-top: 20px;
-    width: 100%; /* Make it take up full width */
-    height: 350px; /* Set a specific height */
-    padding: 0 20px; /* Optional, for spacing on the sides */
-    border: 1px solid red
+    width: 100%;
+    height: 350px;
+    padding: 0 20px;
+    border: 1px solid red;
 }
 
 .profile-info {
@@ -120,7 +121,7 @@ header {
     flex-direction: column;
     justify-content: center;
     text-align: left;
-    width: 50%; /* Set width to control size */
+    width: 50%; 
     padding: 20px;
 }
 
@@ -132,8 +133,8 @@ header {
 
 .profile-card {
     flex: 1;
-    max-width: 500px; /* Set width for the profile card */
-    height: 100%; /* Ensure it fills the available height */
+    max-width: 500px; 
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -210,3 +211,182 @@ header {
     margin-bottom: 20px;
     width: 39rem;
 }
+
+/* Media Queries for Responsiveness */
+
+/* Tablet and below */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        padding: 10px 20px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .profile-section {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+    }
+
+    .profile-info {
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .profile-card {
+        margin-left: 0;
+        max-width: 100%;
+    }
+
+    .bio-text p {
+        width: auto; /* Allow bio text to be responsive */
+    }
+
+    .buttons-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+/* Mobile and below */
+@media (max-width: 480px) {
+    .nav-links li a {
+        font-size: 16px;
+    }
+
+    .profile-section {
+        padding: 10px;
+        height: auto;
+    }
+
+    .profile-info h2 {
+        font-size: 20px;
+    }
+
+    .profile-info {
+        width: 100%;
+        text-align: center;
+    }
+
+    .profile-card {
+        max-width: 100%;
+        padding: 10px;
+    }
+
+    .image-placeholder {
+        width: 120px;
+        height: 120px;
+        line-height: 120px;
+        font-size: 12px;
+    }
+
+    .bio-text p {
+        font-size: 14px;
+        width: auto;
+    }
+
+    .buttons-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+/* Large Desktop */
+@media (min-width: 1200px) {
+    .profile-section {
+        height: 400px;
+    }
+
+    .profile-info h2 {
+        font-size: 28px;
+    }
+
+    .profile-card {
+        max-width: 600px;
+    }
+
+    .bio-text p {
+        font-size: 18px;
+    }
+}
+html {
+    scroll-behavior: smooth;
+  }
+  /* Home_page.scss */
+/* Ensure the desktop nav is displayed normally */
+.desktop-nav {
+    display: flex;
+    align-items: center;
+}
+  
+/* Styling the hamburger icon itself */
+.hamburger-menu-icon {
+    font-size: 2rem; /* Adjust the icon size */
+    color: white; /* Set the color of the icon */
+    transition: transform 0.3s ease; /* Add a smooth transition for any transform animations */
+}
+  
+/* Position the hamburger icon at the top-left of the screen */
+.hamburger-icon {
+    display: none; /* Hide by default on larger screens */
+    position: absolute;
+    top: -55px;      /* Adjust the vertical position */
+    left: 15px;      /* Adjust the horizontal position */
+    z-index: 10;     /* Make sure it's above other content */
+}
+  
+.drawer-menu ul {
+    list-style-type: none;
+    padding: 0;
+    // background-color: blue; /* Set the background color to blue */
+    margin: 0;
+}
+  
+.drawer-menu li {
+    padding: 14px;
+    margin: 5px 30px; /* Add margin to space items out a little */
+    color: white; /* Text color for better visibility */
+    // border-bottom: 1px solid #ccc; /* Border between menu items */
+}
+
+/* Media query for small screen sizes */
+@media (max-width: 768px) {
+    /* Hide the regular desktop nav on small screens */
+    .desktop-nav {
+      display: none;
+    }
+  
+    /* Show the hamburger icon on small screens */
+    .hamburger-icon {
+      display: block; /* Make the hamburger icon visible */
+    }
+  
+    /* Optionally, add a hover effect on the hamburger icon */
+    .hamburger-menu-icon:hover {
+      transform: rotate(90deg); /* This will rotate the hamburger icon when hovered */
+    }
+  
+    /* Drawer menu (mobile version) styling */
+    .drawer-menu ul {
+      margin: 0;
+      background-color: blue; /* Ensure background remains blue on mobile */
+      padding: 10px 0; /* Add padding inside the menu */
+    }
+  
+    .drawer-menu li {
+        padding: 14px 20px; /* Add more padding for better spacing */
+        border-bottom: 1px solid #ccc;
+        text-align: center; /* Center the text horizontally */
+        
+        /* Flexbox to center content both horizontally and vertically */
+        display: flex;
+        justify-content: center; /* Center items horizontally */
+        align-items: center;     /* Center items vertically */
+    }
+    
+  }
