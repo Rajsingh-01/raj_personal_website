@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Login_page.scss";
 
-// ✅ Validation Functions (Moved Outside Component for Performance)
+// Validation Functions (Moved Outside Component for Performance)
 const validateEmail = (email) => /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(email);
 const validatePassword = (password) =>
   /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(password);
@@ -13,7 +13,7 @@ const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
-  // ✅ Handle Input Change
+  // Handle Input Change
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -35,20 +35,20 @@ const LoginPage = () => {
     }
   };
 
-  // ✅ Handle Form Submission
+  //  Handle Form Submission
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!validateEmail(formData.email) || !validatePassword(formData.password)) return;
 
     localStorage.setItem("isLoggedIn", "true");
-    localStorage.setItem("userEmail", formData.email); // ✅ Store email for dashboard
-    navigate("/home"); // ✅ Redirect to home page
+    localStorage.setItem("userEmail", formData.email); // Store email for dashboard
+    navigate("/home"); //Redirect to home page
   };
 
   return (
     <div className="login-container">
       <div className="login-box">
-        <h2>Login</h2>
+        <h2>Get Started your account</h2>
         <form onSubmit={handleSubmit}>
           <div className="textbox">
             <input

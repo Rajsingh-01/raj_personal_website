@@ -18,62 +18,20 @@ const AboutPage = () => {
     },
     {
       icon: <Code style={{ marginRight: "8px" }} />,
-      title: "Front-end Developer 2",
-      description: "We build responsive and interactive front-end solutions using modern web technologies.",
+      title: "PersonalPortfolio",
+      description: "Here is my Personal portfolio link where you can visit and view... ",
+      link: "https://github.com/Rajsingh-01/raj_personal_website"
     },
     {
       icon: <BrandingWatermark style={{ marginRight: "8px" }} />,
-      title: "Design Services 3",
-      description: "Our design services cover branding, graphic design, and more.",
+      title: "Text Generator",
+      description: "Here is View of a text generator link where you can visit and view...",
+      link:"https://github.com/Rajsingh-01/Text-Generator"
     },
     {
       icon: <DesignServices style={{ marginRight: "8px" }} />,
       title: "Mobile App Design 4",
-      description: "Crafting seamless and intuitive mobile experiences for users.",
-    },
-    {
-      icon: <GitHub style={{ marginRight: "8px" }} />,
-      title: "Git-Hub 01",
-      description:
-        "Here is my Git link where you can visit and view all my projects...",
-      link: "https://github.com/Rajsingh-01?tab=repositories",
-    },
-    {
-      icon: <Code style={{ marginRight: "8px" }} />,
-      title: "Front-end Developer 2",
-      description: "We build responsive and interactive front-end solutions using modern web technologies.",
-    },
-    {
-      icon: <BrandingWatermark style={{ marginRight: "8px" }} />,
-      title: "Design Services 3",
-      description: "Our design services cover branding, graphic design, and more.",
-    },
-    {
-      icon: <DesignServices style={{ marginRight: "8px" }} />,
-      title: "Mobile App Design 4",
-      description: "Crafting seamless and intuitive mobile experiences for users.",
-    },
-    {
-      icon: <GitHub style={{ marginRight: "8px" }} />,
-      title: "Git-Hub 01",
-      description:
-        "Here is my Git link where you can visit and view all my projects...",
-      link: "https://github.com/Rajsingh-01?tab=repositories",
-    },
-    {
-      icon: <Code style={{ marginRight: "8px" }} />,
-      title: "Front-end Developer 2",
-      description: "We build responsive and interactive front-end solutions using modern web technologies.",
-    },
-    {
-      icon: <BrandingWatermark style={{ marginRight: "8px" }} />,
-      title: "Design Services 3",
-      description: "Our design services cover branding, graphic design, and more.",
-    },
-    {
-      icon: <DesignServices style={{ marginRight: "8px" }} />,
-      title: "Mobile App Design 4",
-      description: "Crafting seamless and intuitive mobile experiences for users.",
+      description: "Crafting seamless and intuitive mobile experiences for users...",
     },
   ];
 
@@ -116,7 +74,7 @@ const AboutPage = () => {
         <div className="service-cards-wrapper">
           {services.slice(currentIndex, currentIndex + 4).map((service, index) => (
             <div key={index} className="service-card">
-              {service.title === "Git-Hub 01" ? (
+              {(service.title === "Git-Hub 01" || service.title === "PersonalPortfolio" || service.title === "Text Generator "  ) ? (
                 <>
                   <div className="service-icon">
                     {service.icon}
@@ -147,7 +105,6 @@ const AboutPage = () => {
         </button>
       </div>
 
-      {/* GitHubDetails Component will be rendered when URL matches */}
       <Routes>
         <Route path="github-details" element={<GitHubDetails />} />
       </Routes>

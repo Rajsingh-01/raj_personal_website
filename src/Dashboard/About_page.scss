@@ -94,9 +94,13 @@ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
 
 // /readmore for git-details 
+.read-more{
+  cursor: pointer;
+  color: #007bff;
+}
 .read-more:hover{
   cursor: pointer;
-  color :#007bff
+  color :rgb(237, 96, 96)
 
 }
 /* Media Query for smaller screens */
