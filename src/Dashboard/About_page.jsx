@@ -75,7 +75,7 @@ const AboutPage = () => {
         <div className="service-cards-wrapper">
           {services.slice(currentIndex, currentIndex + 4).map((service, index) => (
             <div key={index} className="service-card">
-              {(service.title === "Git-Hub 01" || service.title === "PersonalPortfolio" || service.title === "Text Generator " ||  service.title ==="Mind Space") ? (
+              {(service.title === "Git-Hub 01" || service.title === "PersonalPortfolio" || service.title === "Text Generator" ||  service.title ==="Mind Space") ? (
                 <>
                   <div className="service-icon">
                     {service.icon}
@@ -83,9 +83,15 @@ const AboutPage = () => {
                   </div>
                   <p className="service-description">
                     {service.description}...
-                    <span className="read-more" onClick={() => navigate("/home/about/github-details")}>
-                      Read More
-                    </span>
+                    <span
+  className="read-more"
+  onClick={() =>
+    navigate("/home/about/github-details", { state: { selectedTitle: service.title } })
+  }
+>
+  Read More
+</span>
+
                   </p>
                 </>
               ) : (

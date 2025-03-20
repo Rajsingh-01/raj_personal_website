@@ -1,124 +1,156 @@
-body {
-  background: linear-gradient(135deg, #e0f7fa, #ffffff);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  overflow-x: hidden;
-  scroll-behavior: smooth;
-}
+.about-details {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding: 3rem;
+  background: #f5f7fa;
+  min-height: 100vh;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-bottom: -152px; 
+  box-sizing: border-box;
 
-.github-details,
-.personal-portfolio-details,
-.text_generator,
-.mind_space {
-  margin: 2rem auto;
-  padding: 2rem;
-  border-radius: 20px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  max-width: 750px;
-  text-align: center;
-  transition: transform 0.3s, box-shadow 0.3s;
-  overflow: auto;
-
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-  }
-
-  h2 {
-    font-size: 2rem;
-    color: #222;
-    margin-bottom: 1rem;
-  }
-
-  p {
-    color: #555;
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-  }
-
-  a {
-    display: inline-block;
-    margin: 0.5rem 0.5rem;
-    padding: 0.7rem 1.5rem;
-    color: #fff;
-    border-radius: 30px;
-    text-decoration: none;
-    transition: all 0.3s;
-    background: linear-gradient(135deg, #4b6cb7, #182848);
-
-    &:hover {
-      background: linear-gradient(135deg, #182848, #4b6cb7);
-      transform: scale(1.05);
-    }
-  }
-
-  button {
-    margin-top: 1rem;
-    padding: 0.7rem 1.5rem;
-    border: none;
-    border-radius: 30px;
-    background-image: linear-gradient(135deg, #4b6cb7, #182848);
-    color: #fff;
-    cursor: pointer;
-    transition: all 0.3s;
-
-    &:hover {
-      background-image: linear-gradient(135deg, #182848, #ff5f6d);
-      transform: scale(1.05);
-    }
-  }
-}
-
-/* Unique background colors for each section */
-.github-details {
-  background: linear-gradient(135deg, #fdfcfb, #e2d1c3);
-}
-
-.personal-portfolio-details {
-  background: linear-gradient(135deg, #cfd9df, #fda085);
-}
-
-.text_generator {
-  background: linear-gradient(135deg, #cfd9df, #e2ebf0);
-}
-
-.mind_space {
-  background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
-}
-
-/* Scroll styling */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, #4b6cb7, #182848);
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(135deg, #182848, #4b6cb7);
-}
-
-@media (max-width: 768px) {
   .github-details,
   .personal-portfolio-details,
   .text_generator,
   .mind_space {
-    padding: 1.5rem;
-    margin: 1rem;
-  }
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    overflow-wrap: break-word;
 
-  h2 {
-    font-size: 1.5rem;
-  }
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    }
 
-  p {
-    font-size: 0.95rem;
+    h2 {
+      font-size: 2rem;
+      color: #2c3e50;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    a {
+      display: inline-block;
+      margin-right: 1rem;
+      margin-bottom: 1rem;
+      padding: 0.6rem 1.2rem;
+      background-color: #4b7bec;
+      color: #fff;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: #3867d6;
+      }
+    }
+
+    button {
+      padding: 0.6rem 1.2rem;
+      background-color: #ff6b6b;
+      border: none;
+      border-radius: 12px;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      font-size: 1rem;
+
+      &:hover {
+        background-color: #ee5253;
+      }
+    }
   }
 }
+
+// ✅ Responsive adjustments
+@media screen and (max-width: 1024px) {
+  .about-details {
+    padding: 2rem;
+    gap: 2.5rem;
+
+    .github-details,
+    .personal-portfolio-details,
+    .text_generator,
+    .mind_space {
+      padding: 1.8rem;
+
+      h2 {
+        font-size: 1.7rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .about-details {
+    padding: 1.5rem;
+    gap: 2rem;
+
+    .github-details,
+    .personal-portfolio-details,
+    .text_generator,
+    .mind_space {
+      padding: 1.5rem;
+
+      h2 {
+        font-size: 1.4rem;
+      }
+
+      p {
+        font-size: 0.95rem;
+      }
+
+      a,
+      button {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .about-details {
+    padding: 1rem;
+    gap: 1.5rem;
+
+    .github-details,
+    .personal-portfolio-details,
+    .text_generator,
+    .mind_space {
+      padding: 1rem;
+
+      h2 {
+        font-size: 1.25rem;
+      }
+
+      p {
+        font-size: 0.9rem;
+      }
+
+      a,
+      button {
+        width: 100%;
+        margin-bottom: 0.8rem;
+      }
+    }
+  }
+}
+
+
+
