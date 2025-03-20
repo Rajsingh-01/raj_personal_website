@@ -1,169 +1,124 @@
+body {
+  background: linear-gradient(135deg, #e0f7fa, #ffffff);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.github-details,
+.personal-portfolio-details,
+.text_generator,
+.mind_space {
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  max-width: 750px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  overflow: auto;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  h2 {
+    font-size: 2rem;
+    color: #222;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    color: #555;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  a {
+    display: inline-block;
+    margin: 0.5rem 0.5rem;
+    padding: 0.7rem 1.5rem;
+    color: #fff;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: all 0.3s;
+    background: linear-gradient(135deg, #4b6cb7, #182848);
+
+    &:hover {
+      background: linear-gradient(135deg, #182848, #4b6cb7);
+      transform: scale(1.05);
+    }
+  }
+
+  button {
+    margin-top: 1rem;
+    padding: 0.7rem 1.5rem;
+    border: none;
+    border-radius: 30px;
+    background-image: linear-gradient(135deg, #4b6cb7, #182848);
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+      background-image: linear-gradient(135deg, #182848, #ff5f6d);
+      transform: scale(1.05);
+    }
+  }
+}
+
+/* Unique background colors for each section */
 .github-details {
-    max-width: 100%;
-    width: 600px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #0f4c8d;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #fdfcfb, #e2d1c3);
+}
+
+.personal-portfolio-details {
+  background: linear-gradient(135deg, #cfd9df, #fda085);
+}
+
+.text_generator {
+  background: linear-gradient(135deg, #cfd9df, #e2ebf0);
+}
+
+.mind_space {
+  background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+}
+
+/* Scroll styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #4b6cb7, #182848);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #182848, #4b6cb7);
+}
+
+@media (max-width: 768px) {
+  .github-details,
+  .personal-portfolio-details,
+  .text_generator,
+  .mind_space {
+    padding: 1.5rem;
+    margin: 1rem;
   }
-  
-  .github-details h2 {
-    color: white;
-    margin-bottom: 15px;
+
+  h2 {
+    font-size: 1.5rem;
   }
-  
-  .github-details p {
-    color: white;
-    line-height: 1.6;
-    margin-bottom: 20px;
+
+  p {
+    font-size: 0.95rem;
   }
-  
-  .github-details .links-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px; /* Creates space between the button and link */
-  }
-  
-  .github-details a {
-    display: inline-block;
-    padding: 12px 20px;
-    text-decoration: none;
-    background-color: #0073e6;
-    color: white;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background 0.3s ease-in-out;
-  }
-  
-  .github-details a:hover {
-    background-color: #005bb5;
-  }
-  
-  .github-details button {
-    padding: 12px 24px;
-    background-color: #0073e6;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s ease-in-out;
-  }
-  
-  .github-details button:hover {
-    background-color: #005bb5;
-  }
-  
-  /* Responsive Styles */
-  @media (max-width: 768px) {
-    .github-details {
-      padding: 15px;
-    }
-  
-    .github-details a,
-    .github-details button {
-      width: 80%; /* Makes buttons and links adapt to smaller screens */
-      text-align: center;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .github-details {
-      padding: 10px;
-    }
-  
-    .github-details a,
-    .github-details button {
-      width: 100%;
-      font-size: 14px;
-      padding: 10px;
-    }
-  }
-  .personal-portfolio-details {
-    max-width: 100%;
-    width: 600px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #0f4c8d;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    font-family: Arial, sans-serif;
-  }
-  
-  .personal-portfolio-details h2 {
-    color: white;
-    margin-bottom: 15px;
-  }
-  
-  .personal-portfolio-details p {
-    color: white;
-    line-height: 1.6;
-    margin-bottom: 20px;
-  }
-  
-  .personal-portfolio-details .links-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px; /* Creates space between the button and link */
-  }
-  
-  .personal-portfolio-details a {
-    display: inline-block;
-    padding: 12px 20px;
-    text-decoration: none;
-    background-color: #0073e6;
-    color: white;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background 0.3s ease-in-out;
-  }
-  
-  .personal-portfolio-details a:hover {
-    background-color: #005bb5;
-  }
-  
-  .personal-portfolio-details button {
-    padding: 12px 24px;
-    background-color: #0073e6;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s ease-in-out;
-  }
-  
-  .personal-portfolio-details button:hover {
-    background-color: #005bb5;
-  }
-  
-  /* Responsive Styles */
-  @media (max-width: 768px) {
-    .personal-portfolio-details {
-      padding: 15px;
-    }
-  
-    .personal-portfolio-details a,
-    .personal-portfolio-details button {
-      width: 80%; /* Makes buttons and links adapt to smaller screens */
-      text-align: center;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .personal-portfolio-details {
-      padding: 10px;
-    }
-  
-    .personal-portfolio-details a,
-    .personal-portfolio-details button {
-      width: 100%;
-      font-size: 14px;
-      padding: 10px;
-    }
-  }
-  
+}

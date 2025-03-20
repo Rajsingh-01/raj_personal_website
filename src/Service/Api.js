@@ -20,5 +20,5 @@ export const sendMessage = async (formData) => {
 import axios from 'axios';
 
 export const sendMessage = async (formData) => {
-    return await axios.post('http://localhost:3001/send-email', formData);
+    return await axios.post('http://localhost:3001/api/contact', formData); // updated URL
 };
