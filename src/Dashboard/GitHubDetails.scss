@@ -8,8 +8,21 @@
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  margin-bottom: -152px; 
+  margin-bottom: -51rem;
   box-sizing: border-box;
+
+  .highlight-title {
+    text-decoration-line: underline;
+    text-decoration-color: red;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 8px;
+    cursor: pointer; /* yeh add kiya hover effect ke liye */
+}
+.highlight-title:hover {
+  text-decoration-color: darkred;
+  text-decoration-thickness: 4px;
+}
+
 
   .github-details,
   .personal-portfolio-details,
@@ -151,6 +164,3 @@
     }
   }
 }
-
-
-

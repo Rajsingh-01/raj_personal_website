@@ -9,7 +9,7 @@ const GitHubDetails = () => {
 
   // Create refs for each section
   const refs = {
-    "Git-Hub 01": useRef(null),
+    "Git-Hub": useRef(null),
     "PersonalPortfolio": useRef(null),
     "Text Generator": useRef(null),
     "Mind Space": useRef(null),
@@ -26,8 +26,8 @@ const GitHubDetails = () => {
     <div className="about-details">
       <div className="github-details">
         <h2
-          ref={refs["Git-Hub 01"]}
-          className={selectedTitle === "Git-Hub 01" ? "highlight-title" : ""}
+          ref={refs["Git-Hub"]}
+          className={selectedTitle === "Git-Hub" ? "highlight-title" : ""}
         >
           Git-Hub
         </h2>

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Routes, Route, Link, useNavigate, useLocation, Navigate } from "react-router-dom";
 import AboutPage from "./About_page";
 import ContactPage from "./Contact_page";
+import Footer from "../FooterPart/Footer";
 import { Button, IconButton, Drawer } from "@mui/material";
 import WorkIcon from "@mui/icons-material/Work";
 import MenuIcon from "@mui/icons-material/Menu"; 
@@ -19,7 +20,7 @@ const HomePage = () => {
   const homeRef = useRef(null);
   const aboutRef = useRef(null);
   const contactRef = useRef(null);
-
+  const footerRef = useRef(null);
   useEffect(() => {
     if (!localStorage.getItem("isLoggedIn")) {
       console.log("User is not logged in, redirecting to login page...");
@@ -168,6 +169,10 @@ const HomePage = () => {
           {/* Contact Section */}
           <div ref={contactRef} className="contact-section">
             <ContactPage />
+          </div>
+              {/* Footer section */}
+               <div ref={footerRef} className="footer-section">
+            <Footer/>
           </div>
         </div>
       </div>
