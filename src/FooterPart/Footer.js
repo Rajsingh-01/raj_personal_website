@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React from "react";
+import { Facebook, Twitter, Instagram } from "@mui/icons-material";
 import './Footer.scss';
 
 const Footer = () => {
@@ -12,21 +12,20 @@ const Footer = () => {
         </div>
 
         <div className="footer-section">
-          <h2>Quick Links</h2>
-          <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/">Services</a></li>
-            <li><a href="/">Contact</a></li>
-            <li><a href="/">About</a></li>
-          </ul>
-        </div>
-
-        <div className="footer-section">
           <h2>Follow Us</h2>
           <div className="footer-socials">
-            <a href="/">Facebook</a>
-            <a href="/">Twitter</a>
-            <a href="/">Instagram</a>
+            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+              <Facebook style={{ fontSize: 30, marginRight: 8 }} />
+              Facebook
+            </a>
+            <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
+              <Twitter style={{ fontSize: 30, marginRight: 8 }} />
+              Twitter
+            </a>
+            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+              <Instagram style={{ fontSize: 30, marginRight: 8 }} />
+              Instagram
+            </a>
           </div>
         </div>
       </div>

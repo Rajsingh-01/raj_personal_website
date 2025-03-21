@@ -10,11 +10,12 @@ function App() {
   return (
     <Router>
       {/* Common Footer outside Routes */}
-      <Footer />
+  
       <Routes>
         <Route path="/" element={<LoginPage />} />
         <Route path="/home" element={<HomePage />} />
         <Route path="/home/about" element={<AboutPage />} />
+        <Route path="/home/about" element={<Footer />} />
         <Route path="/home/about/github-details" element={<GitHubDetails />} />
       </Routes>
     </Router>

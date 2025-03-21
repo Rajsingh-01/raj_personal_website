@@ -3,9 +3,9 @@ import { Routes, Route, Link, useNavigate, useLocation, Navigate } from "react-r
 import AboutPage from "./About_page";
 import ContactPage from "./Contact_page";
 import Footer from "../FooterPart/Footer";
-import { Button, IconButton, Drawer } from "@mui/material";
+import { Button, IconButton, Drawer, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions } from "@mui/material";
 import WorkIcon from "@mui/icons-material/Work";
-import MenuIcon from "@mui/icons-material/Menu"; 
+import MenuIcon from "@mui/icons-material/Menu";
 import "./Home_page.scss";
 
 const HomePage = () => {
@@ -14,13 +14,14 @@ const HomePage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [image, setImage] = useState(null);
   const [openDrawer, setOpenDrawer] = useState(false);
+  const [openResumeDialog, setOpenResumeDialog] = useState(false); // for dialog state
   const userEmail = localStorage.getItem("userEmail") || "User";
 
-  // Refs for scrolling
   const homeRef = useRef(null);
   const aboutRef = useRef(null);
   const contactRef = useRef(null);
   const footerRef = useRef(null);
+
   useEffect(() => {
     if (!localStorage.getItem("isLoggedIn")) {
       console.log("User is not logged in, redirecting to login page...");
@@ -28,10 +29,9 @@ const HomePage = () => {
     }
   }, [navigate]);
 
-  // Smooth scrolling function
   const scrollToSection = (ref, path) => {
     if (ref && ref.current) {
-      window.history.pushState({}, "", path); // URL update karega bina reload kiye
+      window.history.pushState({}, "", path);
       ref.current.scrollIntoView({ behavior: "smooth" });
     }
   };
@@ -55,6 +55,14 @@ const HomePage = () => {
 
   const toggleDrawer = () => {
     setOpenDrawer(!openDrawer);
+  };
+
+  const handleDownloadResume = () => {
+    const link = document.createElement("a");
+    link.href = "/Raj-Singh-Resume.pdf"; // Make sure this PDF is placed in the public folder
+    link.download = "Raj-Singh-Resume.pdf";
+    link.click();
+    setOpenResumeDialog(false);
   };
 
   return (
@@ -88,13 +96,11 @@ const HomePage = () => {
             </li>
           </ul>
 
-          {/* Hamburger Menu Icon */}
           <IconButton edge="start" color="inherit" aria-label="menu" onClick={toggleDrawer} className="hamburger-icon">
             <MenuIcon className="hamburger-menu-icon" />
           </IconButton>
         </nav>
 
-        {/* Drawer for Mobile View */}
         <Drawer anchor="left" open={openDrawer} onClose={toggleDrawer}>
           <div className="drawer-menu">
             <ul>
@@ -139,8 +145,12 @@ const HomePage = () => {
                 <Button variant="contained" color="primary" className="hire-me-btn">
                   Hire Me <WorkIcon style={{ marginLeft: "8px" }} />
                 </Button>
-                <Button variant="contained" className="contact-btn">
-                  Contact
+                <Button
+                  variant="contained"
+                  className="contact-btn"
+                  onClick={() => setOpenResumeDialog(true)}
+                >
+                  Resume
                 </Button>
               </div>
             </div>
@@ -170,12 +180,57 @@ const HomePage = () => {
           <div ref={contactRef} className="contact-section">
             <ContactPage />
           </div>
-              {/* Footer section */}
-               <div ref={footerRef} className="footer-section">
-            <Footer/>
+
+          {/* Footer Section */}
+          <div ref={footerRef} className="footer-section">
+            <Footer />
           </div>
         </div>
       </div>
+
+      {/* Resume Download Confirmation Dialog */}
+      <Dialog
+        open={openResumeDialog}
+        onClose={() => setOpenResumeDialog(false)}
+      >
+        <DialogTitle>Download Resume</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            Do you want to download Raj Singh's Resume?
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button
+            onClick={() => setOpenResumeDialog(false)}
+            color="secondary"
+            sx={{
+              color: "white",
+              backgroundColor: "#f50057", // for cancel button background
+              "&:hover": {
+                backgroundColor: "#c51162",
+                color: "white",
+              },
+            }}
+          >
+            Cancel
+          </Button>
+          <Button
+            onClick={handleDownloadResume}
+            color="primary"
+            sx={{
+              color: "white",
+              backgroundColor: "#1976d2", // primary blue
+              "&:hover": {
+                backgroundColor: "#115293",
+                color: "white",
+              },
+            }}
+          >
+            Download
+          </Button>
+        </DialogActions>
+
+      </Dialog>
     </>
   );
 };

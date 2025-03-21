@@ -73,7 +73,19 @@
       margin-top: 30px;
       padding-top: 15px;
       font-size: 13px;
-      color: #aaa;
+      color: #ebe9e9;
     }
+  }
+  .footer-socials a {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-socials a:hover {
+    color: #3b5998; // Example: Facebook blue on hover (or use respective platform colors)
   }
   
