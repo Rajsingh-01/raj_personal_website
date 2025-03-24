@@ -11,7 +11,10 @@ body {
     height: 100vh;
     width: 100vw;
 }
+.Paper-shadow{
+background-color: #0d3e72;
 
+}
 nav ul {
     display: flex;
     justify-content: flex-end;
@@ -105,13 +108,13 @@ header {
 
 .profile-section {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 20px;
-    width: 100%;
-    height: 350px;
-    padding: 0 20px;
-    border: 1px solid red;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: -18px;
+  width: 100%;
+  height: 350px;
+  padding: 6px 3px;
+  border: 1px solid red;
 }
 
 .profile-info {
@@ -290,7 +293,7 @@ html {
 }
 
 .hamburger-menu-icon {
-    font-size: 2rem;
+    font-size: 5rem;
     color: white;
     transition: transform 0.3s ease;
 }
@@ -298,8 +301,9 @@ html {
 .hamburger-icon {
     display: none;
     position: absolute;
-    top: -55px;
-    left: 15px;
+    
+    top: -77px;
+    left: 35px;
     z-index: 10;
 }
 

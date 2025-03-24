@@ -46,37 +46,45 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="login-container">
-      <div className="login-box">
-        <h2>Get Started your account</h2>
-        <form onSubmit={handleSubmit}>
-          <div className="textbox">
-            <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
-            {errors.email && <div className="error-message">{errors.email}</div>}
-          </div>
-          <div className="textbox password-box">
-            <input
-              type={showPassword ? "text" : "password"}
-              name="password"
-              placeholder="Password"
-              value={formData.password}
-              onChange={handleChange}
-              required
-            />
-            <span className="eye-icon" onClick={() => setShowPassword(!showPassword)}>
-              {showPassword ? "👁️" : "👁️‍🗨️"}
-            </span>
-            {errors.password && <div className="error-message">{errors.password}</div>}
-          </div>
-          <button type="submit" className="btn-login">Login</button>
-        </form>
+    <div className="login-page-container">
+      <div className="left-section">
+        <h1 className="welcome-heading">Hello! 👋</h1>
+        <p className="welcome-subtext">Welcome to my portfolio</p>
+      </div>
+      <div className="right-section">
+        <div className="login-box">
+          <h2>Get Started with your account</h2>
+          <form onSubmit={handleSubmit}>
+            <div className="textbox">
+              <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+              {errors.email && <div className="error-message">{errors.email}</div>}
+            </div>
+            <div className="textbox password-box">
+              <div className="password-input-container">
+                <span className="eye-icon" onClick={() => setShowPassword(!showPassword)}>
+                  {showPassword ? "👁️" : "👁️‍🗨️"}
+                </span>
+                <input
+                  type={showPassword ? "text" : "password"}
+                  name="password"
+                  placeholder="Password"
+                  value={formData.password}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              {errors.password && <div className="error-message">{errors.password}</div>}
+            </div>
+            <button type="submit" className="btn-login">Login</button>
+          </form>
+        </div>
       </div>
     </div>
   );
