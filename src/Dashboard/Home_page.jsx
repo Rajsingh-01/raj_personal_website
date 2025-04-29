@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Routes, Route, Link, useNavigate, useLocation, Navigate } from "react-router-dom";
+import { Routes, Route, Link, useNavigate, Navigate } from "react-router-dom";
 import AboutPage from "./About_page";
 import ContactPage from "./Contact_page";
 import Footer from "../FooterPart/Footer";
@@ -10,7 +10,6 @@ import "./Home_page.scss";
 
 const HomePage = () => {
   const navigate = useNavigate();
-  // const location = useLocation();
   const [isLoading, setIsLoading] = useState(false);
   const [image, setImage] = useState(null);
   const [openDrawer, setOpenDrawer] = useState(false);
@@ -205,7 +204,7 @@ const HomePage = () => {
             color="secondary"
             sx={{
               color: "white",
-              backgroundColor: "#f50057", // for cancel button background
+              backgroundColor: "#f50057",
               "&:hover": {
                 backgroundColor: "#c51162",
                 color: "white",
@@ -219,7 +218,7 @@ const HomePage = () => {
             color="primary"
             sx={{
               color: "white",
-              backgroundColor: "#1976d2", // primary blue
+              backgroundColor: "#1976d2",
               "&:hover": {
                 backgroundColor: "#115293",
                 color: "white",
@@ -229,7 +228,6 @@ const HomePage = () => {
             Download
           </Button>
         </DialogActions>
-
       </Dialog>
     </>
   );
