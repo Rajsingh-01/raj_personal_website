@@ -138,7 +138,7 @@ const HomePage = () => {
             <div className="profile-info">
               <h2>Raj Singh</h2>
               <div className="bio-text">
-                <p>"I am an engineer, having recently completed my degree in 2024. I have a strong passion for technology and innovation..."</p>
+                <p>I am an engineer, having recently completed my degree in 2024. I have a strong passion for technology and innovation...</p>
               </div>
               <div className="buttons-container">
                 <Button variant="contained" color="primary" className="hire-me-btn">
@@ -195,7 +195,7 @@ const HomePage = () => {
         <DialogTitle>Download Resume</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            Do you want to download Raj Singh's Resume?
+            Do you want to download Raj Singh Resume?
           </DialogContentText>
         </DialogContent>
         <DialogActions>
