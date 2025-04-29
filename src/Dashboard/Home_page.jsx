@@ -10,7 +10,7 @@ import "./Home_page.scss";
 
 const HomePage = () => {
   const navigate = useNavigate();
-  const location = useLocation();
+  // const location = useLocation();
   const [isLoading, setIsLoading] = useState(false);
   const [image, setImage] = useState(null);
   const [openDrawer, setOpenDrawer] = useState(false);
@@ -59,7 +59,7 @@ const HomePage = () => {
 
   const handleDownloadResume = () => {
     const link = document.createElement("a");
-    link.href = "/Raj-Singh-Resume.pdf"; // Make sure this PDF is placed in the public folder
+    link.href = "/Raj-Singh-Resume.pdf"; 
     link.download = "Raj-Singh-Resume.pdf";
     link.click();
     setOpenResumeDialog(false);
