@@ -2,7 +2,7 @@
   "name": "raj_personal_website",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Rajsingh-01.github.io/raj_personal_website",
+  "homepage": "https://Rajsingh-01.github.io/",
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
@@ -13,8 +13,8 @@
     "@testing-library/react": "^16.2.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.8.3",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-router-dom": "^7.3.0",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
@@ -22,16 +22,19 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
-    ]
+      "react-app/jest",
+      "plugin:react/recommended"  
+    ],
+    "rules": {
+      "react/prop-types": "off", 
+      "no-unused-vars": "warn"   
+    }
   },
   "browserslist": {
     "production": [
@@ -46,10 +49,9 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^6.3.0",
     "sass": "^1.85.1"
   },
-  "description": "This application is designed to provide a clear understanding of the flow of a React application, including its component structure, state management, and data flow. It serves as a practical guide for learning how different parts of a React app interact and work together",
+  "description": "This application is designed to provide a clear understanding of the flow of a React application, including its component structure, state management, and data flow. It serves as a practical guide for learning how different parts of a React app interact and work together.",
   "main": "index.js",
   "keywords": [],
   "author": "",

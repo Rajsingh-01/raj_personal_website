@@ -1,169 +1,166 @@
-.github-details {
-    max-width: 100%;
-    width: 600px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #0f4c8d;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    font-family: Arial, sans-serif;
-  }
-  
-  .github-details h2 {
-    color: white;
-    margin-bottom: 15px;
-  }
-  
-  .github-details p {
-    color: white;
-    line-height: 1.6;
-    margin-bottom: 20px;
-  }
-  
-  .github-details .links-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px; /* Creates space between the button and link */
-  }
-  
-  .github-details a {
-    display: inline-block;
-    padding: 12px 20px;
-    text-decoration: none;
-    background-color: #0073e6;
-    color: white;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background 0.3s ease-in-out;
-  }
-  
-  .github-details a:hover {
-    background-color: #005bb5;
-  }
-  
-  .github-details button {
-    padding: 12px 24px;
-    background-color: #0073e6;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s ease-in-out;
-  }
-  
-  .github-details button:hover {
-    background-color: #005bb5;
-  }
-  
-  /* Responsive Styles */
-  @media (max-width: 768px) {
-    .github-details {
-      padding: 15px;
+.about-details {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding: 3rem;
+  background: #f5f7fa;
+  min-height: 100vh;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-bottom: -51rem;
+  box-sizing: border-box;
+
+  .highlight-title {
+    text-decoration-line: underline;
+    text-decoration-color: red;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 8px;
+    cursor: pointer; /* yeh add kiya hover effect ke liye */
+}
+.highlight-title:hover {
+  text-decoration-color: darkred;
+  text-decoration-thickness: 4px;
+}
+
+
+  .github-details,
+  .personal-portfolio-details,
+  .text_generator,
+  .mind_space {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    overflow-wrap: break-word;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
     }
-  
-    .github-details a,
-    .github-details button {
-      width: 80%; /* Makes buttons and links adapt to smaller screens */
-      text-align: center;
+
+    h2 {
+      font-size: 2rem;
+      color: #2c3e50;
+      margin-bottom: 1rem;
     }
-  }
-  
-  @media (max-width: 480px) {
-    .github-details {
-      padding: 10px;
+
+    p {
+      font-size: 1.1rem;
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
     }
-  
-    .github-details a,
-    .github-details button {
-      width: 100%;
-      font-size: 14px;
-      padding: 10px;
+
+    a {
+      display: inline-block;
+      margin-right: 1rem;
+      margin-bottom: 1rem;
+      padding: 0.6rem 1.2rem;
+      background-color: #4b7bec;
+      color: #fff;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: #3867d6;
+      }
     }
-  }
-  .personal-portfolio-details {
-    max-width: 100%;
-    width: 600px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #0f4c8d;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    font-family: Arial, sans-serif;
-  }
-  
-  .personal-portfolio-details h2 {
-    color: white;
-    margin-bottom: 15px;
-  }
-  
-  .personal-portfolio-details p {
-    color: white;
-    line-height: 1.6;
-    margin-bottom: 20px;
-  }
-  
-  .personal-portfolio-details .links-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px; /* Creates space between the button and link */
-  }
-  
-  .personal-portfolio-details a {
-    display: inline-block;
-    padding: 12px 20px;
-    text-decoration: none;
-    background-color: #0073e6;
-    color: white;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background 0.3s ease-in-out;
-  }
-  
-  .personal-portfolio-details a:hover {
-    background-color: #005bb5;
-  }
-  
-  .personal-portfolio-details button {
-    padding: 12px 24px;
-    background-color: #0073e6;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s ease-in-out;
-  }
-  
-  .personal-portfolio-details button:hover {
-    background-color: #005bb5;
-  }
-  
-  /* Responsive Styles */
-  @media (max-width: 768px) {
-    .personal-portfolio-details {
-      padding: 15px;
-    }
-  
-    .personal-portfolio-details a,
-    .personal-portfolio-details button {
-      width: 80%; /* Makes buttons and links adapt to smaller screens */
-      text-align: center;
+
+    button {
+      padding: 0.6rem 1.2rem;
+      background-color: #ff6b6b;
+      border: none;
+      border-radius: 12px;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      font-size: 1rem;
+
+      &:hover {
+        background-color: #ee5253;
+      }
     }
   }
-  
-  @media (max-width: 480px) {
-    .personal-portfolio-details {
-      padding: 10px;
-    }
-  
-    .personal-portfolio-details a,
-    .personal-portfolio-details button {
-      width: 100%;
-      font-size: 14px;
-      padding: 10px;
+}
+
+// ✅ Responsive adjustments
+@media screen and (max-width: 1024px) {
+  .about-details {
+    padding: 2rem;
+    gap: 2.5rem;
+
+    .github-details,
+    .personal-portfolio-details,
+    .text_generator,
+    .mind_space {
+      padding: 1.8rem;
+
+      h2 {
+        font-size: 1.7rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
     }
   }
-  
+}
+
+@media screen and (max-width: 768px) {
+  .about-details {
+    padding: 1.5rem;
+    gap: 2rem;
+
+    .github-details,
+    .personal-portfolio-details,
+    .text_generator,
+    .mind_space {
+      padding: 1.5rem;
+
+      h2 {
+        font-size: 1.4rem;
+      }
+
+      p {
+        font-size: 0.95rem;
+      }
+
+      a,
+      button {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .about-details {
+    padding: 1rem;
+    gap: 1.5rem;
+
+    .github-details,
+    .personal-portfolio-details,
+    .text_generator,
+    .mind_space {
+      padding: 1rem;
+
+      h2 {
+        font-size: 1.25rem;
+      }
+
+      p {
+        font-size: 0.9rem;
+      }
+
+      a,
+      button {
+        width: 100%;
+        margin-bottom: 0.8rem;
+      }
+    }
+  }
+}

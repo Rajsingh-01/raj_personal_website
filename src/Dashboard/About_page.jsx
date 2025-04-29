@@ -11,7 +11,7 @@ const AboutPage = () => {
   const services = [
     {
       icon: <GitHub style={{ marginRight: "8px" }} />,
-      title: "Git-Hub 01",
+      title: "Git-Hub ",
       description:
         "Here is my Git link where you can visit and view all my projects...",
       link: "https://github.com/Rajsingh-01?tab=repositories",
@@ -30,8 +30,9 @@ const AboutPage = () => {
     },
     {
       icon: <DesignServices style={{ marginRight: "8px" }} />,
-      title: "Mobile App Design 4",
-      description: "Crafting seamless and intuitive mobile experiences for users...",
+      title: "Mind Space",
+      description: "Here is View of a Mindspace link where you can visit and view...",
+      link:"https://github.com/Rajsingh-01/Mind-space"
     },
   ];
 
@@ -74,7 +75,7 @@ const AboutPage = () => {
         <div className="service-cards-wrapper">
           {services.slice(currentIndex, currentIndex + 4).map((service, index) => (
             <div key={index} className="service-card">
-              {(service.title === "Git-Hub 01" || service.title === "PersonalPortfolio" || service.title === "Text Generator "  ) ? (
+              {(service.title === "Git-Hub " || service.title === "PersonalPortfolio" || service.title === "Text Generator" || service.title === "Mind Space") ? (
                 <>
                   <div className="service-icon">
                     {service.icon}
@@ -82,9 +83,15 @@ const AboutPage = () => {
                   </div>
                   <p className="service-description">
                     {service.description}...
-                    <span className="read-more" onClick={() => navigate("/home/about/github-details")}>
+                    <span
+                      className="read-more"
+                      onClick={() =>
+                        navigate("/home/about/github-details", { state: { selectedTitle: service.title } })
+                      }
+                    >
                       Read More
                     </span>
+
                   </p>
                 </>
               ) : (
