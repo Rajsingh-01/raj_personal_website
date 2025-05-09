@@ -7,32 +7,35 @@ const GitHubDetails = () => {
   const location = useLocation();
   const selectedTitle = location.state?.selectedTitle;
 
-  // Create refs for each section
+  //   usage of hooks at the top level
+  const gitHubRef = useRef(null);
+  const portfolioRef = useRef(null);
+  const textGenRef = useRef(null);
+  const mindSpaceRef = useRef(null);
+
   const refs = {
-    "Git-Hub": useRef(null),
-    "PersonalPortfolio": useRef(null),
-    "Text Generator": useRef(null),
-    "Mind Space": useRef(null),
+    "Git-Hub": gitHubRef,
+    "PersonalPortfolio": portfolioRef,
+    "Text Generator": textGenRef,
+    "Mind Space": mindSpaceRef,
   };
 
-  // Scroll to the respective section when loaded
   useEffect(() => {
     if (selectedTitle && refs[selectedTitle]?.current) {
       refs[selectedTitle].current.scrollIntoView({ behavior: "smooth" });
     }
-  }, [selectedTitle]);
-
+  }, [selectedTitle])
   return (
     <div className="about-details">
       <div className="github-details">
         <h2
-          ref={refs["Git-Hub"]}
+          ref={gitHubRef}
           className={selectedTitle === "Git-Hub" ? "highlight-title" : ""}
         >
           Git-Hub
         </h2>
         <p>
-            Here is my Git link where you can visit and view all my projects. Feel free to explore the code, contributions, and the work I've done.
+            Here is my Git link where you can visit and view all my projects. Feel free to explore the code, contributions, and the work I have done.
             Let me know if you have any questions or feedback through my contact page!
         </p>
         <a
@@ -47,7 +50,7 @@ const GitHubDetails = () => {
 
       <div className="personal-portfolio-details">
         <h2
-          ref={refs["PersonalPortfolio"]}
+          ref={portfolioRef}
           className={selectedTitle === "PersonalPortfolio" ? "highlight-title" : ""}
         >
           My-Portfolio
@@ -69,7 +72,7 @@ const GitHubDetails = () => {
 
       <div className="text_generator">
         <h2
-          ref={refs["Text Generator"]}
+          ref={textGenRef}
           className={selectedTitle === "Text Generator" ? "highlight-title" : ""}
         >
           Text Generator
@@ -80,7 +83,7 @@ const GitHubDetails = () => {
          to customize the text format as they wish. Users can also count words and characters, remove extra spaces,
           and perform other text-related tasks quickly and efficiently. It’s a simple and user-friendly tool designed to 
           make text editing more convenient and flexible.</p>       
-          <a
+        <a
           href="https://github.com/Rajsingh-01/Text-Generator"
           target="_blank"
           rel="noopener noreferrer"
@@ -94,7 +97,7 @@ const GitHubDetails = () => {
         {/* //added personal portfolio details  */}
       <div className="mind_space">
         <h2
-          ref={refs["Mind Space"]}
+          ref={mindSpaceRef}
           className={selectedTitle === "Mind Space" ? "highlight-title" : ""}
         >
           MindSpace
@@ -102,11 +105,18 @@ const GitHubDetails = () => {
         <p>
         We build responsive and interactive front-end solutions using modern web technologies. I have created my own personal portfolio, which includes a login page, home, about, and contact pages. The portfolio showcases my skills, projects, and achievements. If you visit my contact page and send me a message from your email, it will come directly to my email, allowing for seamless communication. I continuously update and improve my portfolio to reflect my growth as a web developer and to showcase the best of my work.
         </p>
-          <a href="https://github.com/Rajsingh-01/Mind-space" target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://github.com/Rajsingh-01/Mind-space"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Visit My GitHub
         </a>
-          {/* added deployed link  */}
-          <a href="https://mindspace67.netlify.app/" target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://mindspace67.netlify.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           View_Deployed_Site
         </a>
         <button onClick={() => navigate(-1)}>Back</button>
