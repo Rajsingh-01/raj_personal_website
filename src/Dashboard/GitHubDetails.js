@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useMemo } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import "./GitHubDetails.scss";
 
@@ -13,18 +13,20 @@ const GitHubDetails = () => {
   const textGenRef = useRef(null);
   const mindSpaceRef = useRef(null);
 
-  const refs = {
+ 
+  const refs = useMemo(() => ({
     "Git-Hub": gitHubRef,
     "PersonalPortfolio": portfolioRef,
     "Text Generator": textGenRef,
     "Mind Space": mindSpaceRef,
-  };
+  }), []);
 
   useEffect(() => {
     if (selectedTitle && refs[selectedTitle]?.current) {
       refs[selectedTitle].current.scrollIntoView({ behavior: "smooth" });
     }
-  }, [selectedTitle])
+  }, [selectedTitle, refs]); 
+
   return (
     <div className="about-details">
       <div className="github-details">
@@ -93,8 +95,6 @@ const GitHubDetails = () => {
         <button onClick={() => navigate(-1)}>Back</button>
       </div>
 
-        {/* MIND SPACE */}
-        {/* //added personal portfolio details  */}
       <div className="mind_space">
         <h2
           ref={mindSpaceRef}
