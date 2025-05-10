@@ -69,6 +69,13 @@ const GitHubDetails = () => {
         >
           Visit My GitHub
         </a>
+            <a
+          href="https://rajsite01.netlify.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View_Deployed_Site
+        </a>
         <button onClick={() => navigate(-1)}>Back</button>
       </div>
 

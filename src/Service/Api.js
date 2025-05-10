@@ -15,10 +15,9 @@ export const sendMessage = async (formData) => {
 
 */ 
 
-
 // only for an email
 import axios from 'axios';
 
 export const sendMessage = async (formData) => {
-    return await axios.post('http://localhost:3001/api/contact', formData); // updated URL
+    return await axios.post('https://backend-part-2ioy.onrender.com', formData);
 };
