@@ -19,5 +19,5 @@ export const sendMessage = async (formData) => {
 import axios from 'axios';
 
 export const sendMessage = async (formData) => {
-    return await axios.post('https://backend-part-2ioy.onrender.com', formData);
+    return await axios.post('https://backend-node-ilpj.onrender.com/api/contact', formData);
 };

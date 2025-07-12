@@ -3,11 +3,11 @@ import { Routes, Route, Link, useNavigate, Navigate } from "react-router-dom";
 import AboutPage from "./About_page";
 import ContactPage from "./Contact_page";
 import Footer from "../FooterPart/Footer";
-import { Button, IconButton, Drawer, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions } from "@mui/material";
+import { Button, IconButton,  Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions } from "@mui/material";
 import WorkIcon from "@mui/icons-material/Work";
 import MenuIcon from "@mui/icons-material/Menu";
 import "./Home_page.scss";
-
+import Sidebar from "./Drawer_sidebar/Sidebar";
 const HomePage = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
@@ -58,8 +58,8 @@ const HomePage = () => {
 
   const handleDownloadResume = () => {
     const link = document.createElement("a");
-    link.href = "/Raj-Singh-Resume.pdf"; 
-    link.download = "Raj-Singh-Resume.pdf";
+    link.href = "/RajSInghResume.pdf";
+    link.download = "/RajSInghResume.pdf";
     link.click();
     setOpenResumeDialog(false);
   };
@@ -100,32 +100,19 @@ const HomePage = () => {
           </IconButton>
         </nav>
 
-        <Drawer anchor="left" open={openDrawer} onClose={toggleDrawer}>
-          <div className="drawer-menu">
-            <ul>
-              <li>
-                <Link to="#" onClick={(e) => { e.preventDefault(); scrollToSection(homeRef, "/home"); toggleDrawer(); }}>
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link to="#" onClick={(e) => { e.preventDefault(); scrollToSection(aboutRef, "/home/about"); toggleDrawer(); }}>
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link to="#" onClick={(e) => { e.preventDefault(); scrollToSection(contactRef, "/home/contact"); toggleDrawer(); }}>
-                  Contact
-                </Link>
-              </li>
-              <li>
-                <button className="logout-loading-btn" onClick={handleLogout}>
-                  {isLoading ? <div className="spinner"></div> : "Logout"}
-                </button>
-              </li>
-            </ul>
-          </div>
-        </Drawer>
+<Sidebar
+  openDrawer={openDrawer}
+  toggleDrawer={toggleDrawer}
+  homeRef={homeRef}
+  aboutRef={aboutRef}
+  contactRef={contactRef}
+  scrollToSection={scrollToSection}
+  handleLogout={handleLogout}
+  isLoading={isLoading}
+  userEmail={userEmail}
+/>
+
+
 
         <div className="main-content">
           <Routes>
