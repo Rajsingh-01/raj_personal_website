@@ -28,7 +28,7 @@ const GitHubDetails = () => {
   }, [selectedTitle, refs]); 
 
   return (
-    <div className="about-details">
+    <div className="gitHub_about-details">
       <div className="github-details">
         <h2
           ref={gitHubRef}

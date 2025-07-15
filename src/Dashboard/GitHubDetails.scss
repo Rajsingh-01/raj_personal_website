@@ -1,71 +1,60 @@
-.about-details {
+.gitHub_about-details {
   display: flex;
   flex-direction: column;
   gap: 3rem;
   padding: 3rem;
-  background: #f5f7fa;
+  background-color: #0d3e72; // Deep blue background
   min-height: 100vh;
-  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  margin-bottom: -51rem;
   box-sizing: border-box;
 
-  .highlight-title {
-    text-decoration-line: underline;
-    text-decoration-color: red;
-    text-decoration-thickness: 3px;
-    text-underline-offset: 8px;
-    cursor: pointer; /* yeh add kiya hover effect ke liye */
-}
-.highlight-title:hover {
-  text-decoration-color: darkred;
-  text-decoration-thickness: 4px;
-}
-
-
+  // Apply fade-in animation to all cards
   .github-details,
   .personal-portfolio-details,
   .text_generator,
   .mind_space {
-    background-color: #fff;
+    background-color: #ffffff;
+    color: #2c3e50;
     padding: 2rem;
-    border-radius: 20px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    overflow-wrap: break-word;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    animation: fadeInUp 0.6s ease forwards;
+    opacity: 0;
 
     &:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      transform: translateY(-6px);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
     }
 
     h2 {
       font-size: 2rem;
-      color: #2c3e50;
       margin-bottom: 1rem;
+      transition: color 0.3s ease;
     }
 
     p {
-      font-size: 1.1rem;
-      color: #555;
+      font-size: 1.05rem;
       line-height: 1.7;
       margin-bottom: 1.5rem;
+      color: #555;
     }
 
     a {
       display: inline-block;
-      margin-right: 1rem;
-      margin-bottom: 1rem;
+      margin: 0 1rem 1rem 0;
       padding: 0.6rem 1.2rem;
       background-color: #4b7bec;
       color: #fff;
       border-radius: 12px;
       text-decoration: none;
-      transition: background-color 0.3s;
+      font-weight: 500;
+      transition: background-color 0.3s ease, transform 0.3s ease;
 
       &:hover {
         background-color: #3867d6;
+        transform: scale(1.05);
       }
     }
 
@@ -76,19 +65,50 @@
       border-radius: 12px;
       color: #fff;
       cursor: pointer;
-      transition: background-color 0.3s;
       font-size: 1rem;
+      font-weight: 500;
+      transition: background-color 0.3s ease, transform 0.3s ease;
 
       &:hover {
         background-color: #ee5253;
+        transform: scale(1.05);
       }
+    }
+  }
+
+  // Highlight animation for selected section
+  .highlight-title {
+    text-decoration: underline;
+    text-decoration-color: #ffcccb;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+
+    &:hover {
+      text-decoration-color: #ff6b6b;
+      text-decoration-thickness: 4px;
+      transform: scale(1.03);
     }
   }
 }
 
-// ✅ Responsive adjustments
+// Fade-in animation
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================= Responsive Breakpoints ================= */
 @media screen and (max-width: 1024px) {
-  .about-details {
+  .gitHub_about-details {
     padding: 2rem;
     gap: 2.5rem;
 
@@ -96,10 +116,10 @@
     .personal-portfolio-details,
     .text_generator,
     .mind_space {
-      padding: 1.8rem;
+      padding: 2rem;
 
       h2 {
-        font-size: 1.7rem;
+        font-size: 1.8rem;
       }
 
       p {
@@ -110,7 +130,7 @@
 }
 
 @media screen and (max-width: 768px) {
-  .about-details {
+  .gitHub_about-details {
     padding: 1.5rem;
     gap: 2rem;
 
@@ -121,7 +141,7 @@
       padding: 1.5rem;
 
       h2 {
-        font-size: 1.4rem;
+        font-size: 1.5rem;
       }
 
       p {
@@ -138,7 +158,7 @@
 }
 
 @media screen and (max-width: 480px) {
-  .about-details {
+  .gitHub_about-details {
     padding: 1rem;
     gap: 1.5rem;
 
@@ -149,7 +169,7 @@
       padding: 1rem;
 
       h2 {
-        font-size: 1.25rem;
+        font-size: 1.3rem;
       }
 
       p {

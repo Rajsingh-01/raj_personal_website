@@ -8,10 +8,11 @@ import WorkIcon from "@mui/icons-material/Work";
 import MenuIcon from "@mui/icons-material/Menu";
 import "./Home_page.scss";
 import Sidebar from "./Drawer_sidebar/Sidebar";
+// import RajImage from "../../assests/Raj.jpg"
+import RajImage from "..//assests/Raj.jpg"
 const HomePage = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
-  const [image, setImage] = useState(null);
   const [openDrawer, setOpenDrawer] = useState(false);
   const [openResumeDialog, setOpenResumeDialog] = useState(false); // for dialog state
   const userEmail = localStorage.getItem("userEmail") || "User";
@@ -45,12 +46,12 @@ const HomePage = () => {
     }, 2000);
   };
 
-  const handleImageUpload = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      setImage(URL.createObjectURL(file));
-    }
-  };
+  // const handleImageUpload = (e) => {
+  //   const file = e.target.files[0];
+  //   if (file) {
+  //     setImage(URL.createObjectURL(file));
+  //   }
+  // };
 
   const toggleDrawer = () => {
     setOpenDrawer(!openDrawer);
@@ -141,20 +142,9 @@ const HomePage = () => {
               </div>
             </div>
 
-            <div className="profile-card">
-              {image ? (
-                <img src={image} alt="Uploaded" className="uploaded-image" />
-              ) : (
-                <div className="image-placeholder">Upload Image</div>
-              )}
-              <input
-                type="file"
-                accept="image/*"
-                onChange={handleImageUpload}
-                className="image-upload-input"
-                style={{ width: '56%', fontFamily: "sans-serif" }}
-              />
-            </div>
+         <div className="profile-card">
+  <img src={RajImage } alt="Profile" className="circular-profile-image" />
+</div>
           </div>
 
           {/* About Section */}
