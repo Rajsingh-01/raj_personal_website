@@ -1,5 +1,5 @@
 import React from "react";
-import { Drawer, IconButton } from "@mui/material";
+import { Drawer} from "@mui/material";
 import "./Sidebar.scss";
 import { Link } from "react-router-dom";
 import CloseIcon from "@mui/icons-material/Close";
